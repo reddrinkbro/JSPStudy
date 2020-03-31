@@ -20,7 +20,6 @@
 	document.write(c, "<br/>");
 	document.write(d, "<br/>");
 	
-	
 	</script>
 
 </head>

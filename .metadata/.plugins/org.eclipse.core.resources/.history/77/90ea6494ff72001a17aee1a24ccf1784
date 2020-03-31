@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	
+	//num1 변수를 선언하고 숫자 15를 저장
+	var num1 = 15;
+	//num2 변수를 선언하고 숫자 2를 저장
+	var num2 = 2;
+	//result 변수만 선언
+	var result;
+	//+ 더하기 연산자 사용하는데..
+	// num1변수에 저장된 값 + num2변수에 저장된 값의 결과를 result 변수에 저장
+	result = num1 + num2;
+	// result 변수에 저장된 값 출력후 한줄 띄어주기
+	document.write(result , "<br>")
+	//+ 더하기 연산자 사용하는데..
+	// num1변수에 저장된 값 + num2변수에 저장된 값의 결과를 result 변수에 저장
+	result = num1 - num2;
+	// result 변수에 저장된 값 출력후 한줄 띄어주기
+	document.write(result , "<br>")
+	
+	result = num1 * num2;
+	document.write(result , "<br>")
+	
+	result = num1 / num2;
+	document.write(result , "<br>")
+	
+	result = num1 % num2;
+	document.write(result , "<br>")
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>
