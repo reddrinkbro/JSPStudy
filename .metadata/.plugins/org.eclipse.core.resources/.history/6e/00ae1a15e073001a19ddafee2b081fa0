@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	var num1 = 10;
+	var num2 = 20;
+	var result;
+	
+	num1 --;
+	
+	document.write(num1 + "<br/>");
+	num1 ++;
+	
+	document.write(num1+ "<br/>");
+	//++가 변수명 뒤에 있을땐 먼저 변수 result에 num2 변수값을 저장한 후에
+	// num2 변수의 값을 1증가하게 된다
+	// 즉 대입연산자가 먼저 실행되고, 증가 연산자가 나중에 실행됨
+	result = num2++;
+	document.write(result+"<br/>");
+	result = ++num2;
+</script>
+</head>
+<body>
+
+</body>
+</html>
