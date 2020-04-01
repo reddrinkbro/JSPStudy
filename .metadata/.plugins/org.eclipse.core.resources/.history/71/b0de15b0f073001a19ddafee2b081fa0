@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//사용자에게 자주 이용하는 포털 사이트 이름을 입력 받는다
+	var site = prompt("네이버, 다음, 네이트, 구글 중에서 즐겨 사용하는 포털사이트 이름을 입력하세요", "")
+	
+	switch (site) {
+	case "네이버":
+		document.write("네이버");
+		break;
+	case "다음":
+		document.write("다음");
+		break;
+	case "네이트":
+		document.write("네이트");
+		break;
+	default:
+		document.write("구글");
+		break;
+	}
+	
+	
+	</script>
+</body>
+</html>

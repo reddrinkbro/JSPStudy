@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;javascript/WebContent/3제어문/elseif_1_test.html&apos; to &apos;elseif_1.html&apos;" description="Rename resource &apos;elseif_1_test.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/3제어문/elseif_1_test.html" name="elseif_1.html" stamp="1585726389598" updateReferences="true"/>
+</session>
