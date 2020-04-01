@@ -24,7 +24,6 @@
 	document.write(result+ "<br>");
 	
 	//result 변수에 b의 값이 f의 값과 같냐? 라는 식의 결과 값을 저장
-	//자바스크립트에서 문자열에 숫자만 있을 경우 숫자와 비교가 가능하다 
 	result = b == f;
 	document.write(result+ "<br>");
 	
@@ -32,10 +31,8 @@
 	result = a != b;
 	document.write(result+ "<br>");
 	
-	//result 변수에 b와 f의 변수 타입이 같냐? 라는 식의 결과 값을 저장
 	result = b === f;
 	document.write(result+ "<br>");
-	
 	</script>
 </head>
 <body>

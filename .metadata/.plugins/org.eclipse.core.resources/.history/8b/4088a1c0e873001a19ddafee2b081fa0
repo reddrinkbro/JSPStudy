@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<!--  
+	
+	예제 : 사이트 방문자에게 입력받은 걸음수를 조건문으로 만들고
+	10000보이상일 경우에만 출력문 실행하게하기
+	
+	-->
+	<script type="text/javascript">
+	var walkAmount = prompt("당신은 하루 겉는 양은 몇보 인가요", 0)
+	if(walkAmount >= 10000)
+	{
+		document.write("10000보 이상 걸었습니다" + "<br>");	
+	}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

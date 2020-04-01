@@ -36,6 +36,7 @@
 	result = b === f;
 	document.write(result+ "<br>");
 	
+	document.write(3^4);
 	</script>
 </head>
 <body>
