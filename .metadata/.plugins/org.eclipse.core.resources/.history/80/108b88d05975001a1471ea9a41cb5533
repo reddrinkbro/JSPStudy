@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	var num1 = 3.456789;
+	var num2 = 700000;
+	var num3 = "30.5px";
+	var num4 = 40;
+	
+	//num1 변수에 저장된 3.456789를 지정한 고정 소수점 자리 만큼만 반올림하여 되돌려줌
+	document.write(num1.toFixed(2)+ "<br>");
+	
+	</script>
+</head>
+<body>
+</body>
+</html>

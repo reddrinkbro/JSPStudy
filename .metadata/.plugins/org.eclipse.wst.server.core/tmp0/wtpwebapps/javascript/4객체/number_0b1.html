@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	var num1 = 3.456789;
+	var num2 = 700000;
+	var num3 = "30.5px";
+	var num4 = 40;
+	
+	//num1 변수에 저장된 3.456789를 지정한 고정 소수점 자리 만큼만 반올림하여 되돌려줌
+	//소숫점 둘째 자리까지 반올림되어 다음과 같이 표기된다
+	//3.456789에서 소수점 세째자리에서 반올림하여 3.46이된다
+	document.write(num1.toFixed(2)+ "<br>");
+	
+	//num1변수에 저장된 숫자객체 3.456789에 유효한 숫자 2개 3.4에 반올림하면 3.5를 문자열 형태로 변환해서 되돌려줌
+	document.write(num1.toPrecision(2),"<br>");
+	
+	//num1변수에 저장된 값 3.456789를 문자열 형태로 변환후 반환함
+	document.write(num1.toString(),"<br>");
+	
+	//num3변수에 저장된 30.5px를 숫자 객체의 parseInt()를 사용하여 정수만 남여 30을 반환하고 
+	document.write(parseInt(num3) + num4,"<Br>");
+	
+	//num3변수에 저장된 30.5px를 실수만 남겨 30.5를 반환하고
+	//num4변수의 값 40과 더한다
+	document.write(parseFloat(num3) + num4,"<Br>");
+	
+	</script>
+</head>
+<body>
+</body>
+</html>

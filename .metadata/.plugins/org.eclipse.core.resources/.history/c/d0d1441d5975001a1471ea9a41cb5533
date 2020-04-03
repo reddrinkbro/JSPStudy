@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	var num1 = 3.456789;
+	var num2 = 700000;
+	var 와 = 123;
+	document.write(와);
+	</script>
+</head>
+<body>
+</body>
+</html>
