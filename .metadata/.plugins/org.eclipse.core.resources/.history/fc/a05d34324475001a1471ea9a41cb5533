@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+	<script type="text/javascript">
+		//	초기식;		조건식;	  증감식
+		for (var i = 1; i <= 10 ; i++){
+			//반복 실행할 문장을 입력
+			document.write("반복" + i ,"<br>");
+			//동작 순서
+			//1. 변수 i에 초기값 1을 저장함
+			//2. 조건식의 결과가 만족할 경우 중괄호 {}내부에 존재하는 실행코드를 실행함
+			for (var j = 1; j <= 10; j++) {
+				if(i<= 5 && i<=j){
+					document.write("*");
+				}
+			}
+			document.write("<br>");
+		}
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>

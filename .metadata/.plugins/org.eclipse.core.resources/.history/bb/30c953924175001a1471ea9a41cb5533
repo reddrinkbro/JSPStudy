@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+	<!-- 
+	
+		while문을 사용하여 1부터 30까지의 숫자중 2의배수이면서 6의 배수인 숫자만 반복해서 출력
+	 -->
+	<script type="text/javascript">
+	
+	int num = 1;
+	while(num <=30)
+	{
+		if(num %2 == 0 && num % 6 ==0){
+			document.write(num);
+		}
+		num++;
+	}
+		
+	</script>
+	
+</head>
+<body>
+</body>
+</html>
