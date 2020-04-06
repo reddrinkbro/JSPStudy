@@ -42,7 +42,7 @@
 	var com = Math.ceil(Math.random() * 3);
 	
 	//난수를 이용해 컴퓨터 가위 바위 보 이미지가 출력되도록 함
-	document.write("<img src ='images/math_img_" + com + ".jpg' />");
+	document.write("<img src ='images/math_img_" + com + ".jpg"' />")
 	//사용자가 입력한 값과 컴퓨터가 낸 랜덤값이 일치하나 조건 검사함
 	if(tNum == com){
 		alert("맞췄습니다!");
