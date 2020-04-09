@@ -8,19 +8,18 @@
 		/* #-> HTML태그중.. id 속성값이  
 		   #prevBtn-> id속성값이 prevBtn 인 <button>요소를 선택해서 가져와서~
 		   			  css문법을 통해서 화면을 조작한다 
-		 */
-		 /*#nextBtn{id속성값이 nextBtn인 <button>요소를 선택해서*/
-		/*	display:none;버튼이 보이지 않게 설정*/
-		//} 
-		
+		  */
+		#prevBtn{
+			display:none;
+		}
 	</style>
 </head>
 <body>
 <h1>두번째 페이지</h1>
 <a href ="his_obp3.html">3페이지 이동</a>
 	<p>	
-		<button id = "prevBtn" onclick = "history.back();">이전 페이지로 이동</button>
-		<button id = "nextBtn" onclick = "history.forward();">방문한 다음페이지로 이동</button>
+		<button id = "prevBtn" onclick = "">이전 페이지로 이동</button>
+		<button id = "nextBtn" onclick = "">방문한 다음페이지로 이동</button>
 	</p>
 </body>
 </html>
