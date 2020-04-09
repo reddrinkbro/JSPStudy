@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+		window 객체의 메소드 종류
+		open()
+		-> 새 창을 열 때 사용한다, 사이트에서 팝업창을 띄울때 자주 사용되는 window객체의 메소드이다
+		-> 기본작성 구문
+		 window.open("1.url경로", "2.창 이름", "3.옵션설정");
+		 1.url 경로 : 팝업으로 열 사이트 또는 페이지 url경로를 지정합니다.
+		 2.창이름 : 팝업을 뛰울 창 이름을 지정한다
+		 3.옵션설정 : 팝업 창의 크기, 높이, 위치, 도구상자 노출 여부 등을 설정한다
+		 
+		 예)window.open("http://www.naver.com","pop1","width=400,height=500,scrollbars=no,location=no");
+		 location = no -> url 주소입력부분을 보이지 않게 설정
+		
+		open()메소드의 속성
+		
+		속성									설명
+		width						창의 너비를 설정 함
+		height						창의 높이를 설정 함
+		left						창의 좌우수평 위치를 설정함
+		top							창의 상하수직 위치를 설정함
+		location					창의 url주소 입력 영역 노출 여부를 결정함(숨김:no, 노출:yes)
+		status						창의 상태영역 노출 여부를 결정함(숨김:no, 노출:yes)
+		scrollbars					창의 스크롤 막대 노출 여부를 결정함 (숨김:no, 노출:yes)
+		toolbars					창의 도구 상자 노출여부를 결정함(숨김:no, 노출:yes) 
+		
+		
+		
+		close()
+		-> 웹브라우저 창을 자동으로 닫을때 호출 하는 메소드
+ -->
+ <p>
+ 	<img src= "images/window_object_1.jpg" alt="신간 책 소개" usemap="#intro">
+
+ 	 <map name = "intro" id="intro">
+ 	 	<area shape ="rect" coords ="230,368,280,390" href="#" alt = "창닫기" onclick="window.close();">
+ 	 </map>
+ </p>
+</body>
+</html>

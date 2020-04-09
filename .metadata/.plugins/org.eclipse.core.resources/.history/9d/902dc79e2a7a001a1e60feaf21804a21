@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+
+	<script type="text/javascript">
+		//open(팝업창응로 열 사이트 또는 페이지 경로,)
+		//     팝업을 뛰울 창이름
+		//     옵션설정 : 팝업창의 크기, 높이 , 위치 노출 여부등을 설정
+		var pop = window.open("winpopup.html",
+							  "pop1", 
+					 		  "width=300,height=400,left=300,top=10,scrollbars=yes");
+		//변수 pop에 뛰운 팝업 창을 저장함
+
+	
+	</script>
+</head>
+<body>
+<!-- [브라우저 창위치 변경] 버튼을 클릭했을때 -->
+	<p>
+		<button onclick ="pop.moveTo(200,300)">브라우저 창위치 변경</button>
+	</p>
+</body>
+</html>

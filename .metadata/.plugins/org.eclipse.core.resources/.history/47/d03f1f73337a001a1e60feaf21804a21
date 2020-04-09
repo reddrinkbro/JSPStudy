@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+
+	<script type="text/javascript">
+		document.write("screen.width : " + screen.width,"<br/>");
+		document.write("screen.height : " + screen.height,"<br/>");
+		document.write("screen.availWidth : " + screen.availWidth,"<br/>");
+		document.write("screen.availHeight : " + screen.availHeight,"<br/>");
+		document.write("screen.colorDepth : " + screen.colorDepth,"<br/>");
+	</script>
+</head>
+<body>
+
+</body>
+</html>
