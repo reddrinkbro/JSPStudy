@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		form{
+			width: 550px; /*너비 설정*/
+		}
+	
+	</style>
+</head>
+<body>
+	<form action="a.jsp" name = "f1">
+		<fieldset>
+			<legend>form태그 내부의 요소들1</legend>
+			<p>
+				<label>비밀번호</label>
+				<input type ="text" id ="user_pw1" name ="user_pw1"/>
+			</p>
+			<p>
+				<label>비밀번호 확인</label>
+				<input type ="text" id = "user_pw2" name ="user_pw2"/>
+				<input type="submit" value = "확인"/>
+			</p>
+		</fieldset>
+	</form>
+	<form action="a.jsp" name = "f2">
+		<fieldset>
+			<legend>form태그 내부의 요소들2</legend>
+			<div>
+				회사는 법령이 정하는 바에 따라 "회원"의 개인정보를 보호하기
+				위해 노력합니다. 개인정보의 보호 및 사용에 대해서는 관련법
+				및 회사의 개인정보취급방침이 적용됩니다.
+			</div>
+			<p>
+				<input type="checkbox" name = "accept" id ="accept"/>
+				<label>약관 동의합니다</label> 
+			</p>
+				<input type="checkbox" name = allchk id ="allchk" >
+				<label>전체 선택</label>
+				<input type="checkbox" name = "subject1" id ="subject1" value = "과목 1"/>
+				<label>과목1</label>
+				
+				<input type="checkbox" name = "subject2" id ="subject2" value = "과목 2"/>
+				<label>과목2</label>
+				
+				<input type="checkbox" name = "subject3" id ="subject3" value = "과목 3"/>
+				<label>과목3</label>
+			<p>
+				<input type="submit" value = "등록완료">
+				<input type="reset" value = "초기화">
+			</p>
+		</fieldset>
+	</form>
+	<script type="text/javascript">
+	
+		//전체 선택체크박스를 클릭했을때 이벤트 처리함수 function(){...}이 실행되게 선언
+		document.f2.allchk.onclick = function(){
+			//this 키워드 : 이벤트행위가 발생한 요소를 가리키는 키워드
+			//여기서는 전체 선택 체크박스를 클릭하는 경우이므로 이벤트가 발생한 체크박스를 this키워드로 가리킴
+			
+			if(this.checked == true){
+				document.f2.subject1.checked = true;
+				document.f2.subject2.checked = true;
+				document.f2.subject3.checked = true;
+			}
+		}
+	
+		//<form name ="f1"> 요소를 선택해 가져온다
+		//확인버튼을 클릭했을때 이벤트 처리함수가 실행되게 선언
+		document.f1.onsubmit = function(){
+			//비밀번호 입력 공간 얻기
+			//입력 요소 중에서 <input name ="user_pw1">인 요소를 선택해서 가져와서 변수 pw1에 저장
+			var pw1 = document.f1.user_pw1;
+			//비밀번호 확인 입력 공간 얻기
+			//입력 요소 중 <input name = "user_pw2">인 요소를 선택해서 가져와서 변수pw2에 저장
+			var pw2 = document.f1.user_pw2;
+			
+			//사이트 방문객이 작성한 비밀번호 값을 얻어
+			//비밀번호 확인 <input>요소의 value속성값으로 설정하여 출력
+			pw2.value = pw1.value ;
+			//비밀번호 확인 <input>요소가 비활성화되어 입력을 할수 없도록 disabled속성의 값을 true함
+			pw2.disabled = true;
+			
+			//이벤트 처리함수 function(){...} 마지막 부분에 return false의 값을 작성하여
+			//a.jsp페이지로 전송하는 것을 차단시켜야한다
+			//만약 차단 하지 않으면 <form>태그의 action속성에 작성된 a.jsp로 전송하여 페이지가 이동되게 된다
+		}
+		
+	</script>
+</body>
+</html>
