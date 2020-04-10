@@ -6,6 +6,7 @@
 </head>
 <body>
 	<h1>선호하는 음식</h1>
+	<h1>바보</h1>
 	<div id ="food_1">
 		<h2 id= "title">한식</h2>
 		<ul>
@@ -23,14 +24,25 @@
 		</ol>
 	</div>
 	<script type="text/javascript">
-		//id속성값이 title인 요소를 선택해서 가져옴
-		var h2 = document.getElementById("title");//ID 선택자
-		//css 문법 글자색상을 빨간색으로 적용
-		h2.style.color = "red";
+		//HTML요소중 (태그들중) <h1>요소만 선택함.
+		//그리고 가장 처음<h1>요소만 선택한후, CSS로 글자 색상을 초록색으로 적용
+		
+		//getElementsByTagName()메소드 호출시.. 선택해 올 요소인 h1이름을 전달하면
+		//모든 h1요소들을 새로운 배열에 담아 배열자체를 선택해옴
+		//배열에 저장된 위치중 0번째 인덱스 위치에 저장되어 있는 <h1>선호하는 음식</h1>만? 최종적으로 선택해옴
+		//CSS로 글자 색상을 초록색으로 적용
 		var h1 = document.getElementsByTagName("h1");
-		//div배열의 0번째 인덱스 위치에 저장되어 있는 div요소만 선택해서 가져와서 텍스트글자를 그린으로 설정
 		h1[0].style.color = "green";
-		console.log(h2); //웹브라우저의 console 탭에 로그 출력
+		
+		//HTML요소들중.. id속성값이 title인 요소를 선택한 후,
+		//CSS로 글자색상을 빨간색으로 적용
+		document.getElementById("title").style.color = "red";
+		
+		//HTML요소들 중.. id 속성값이 food_1인 요소의 하위 요소 <li>요소만 선택
+		//그중 두번째 <li>요소만 최종적으로 선택한 후, 배경 색상을 빨간색으로 적용함
+		var food = document.getElementById("food_1").getElementsByTagName("li");
+		food[1].style.backgroundColor  = "red";
+		
 	</script>
 </body>
 </html>

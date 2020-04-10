@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM객체</title>
+</head>
+<body>
+	<h1>선호하는 음식</h1>
+
+	<div id ="food_1">
+		<h2 id= "title">한식</h2>
+		<ul>
+			<li><a href="#">김치</a></li>
+			<li>불고기</li>
+			<li>비빔밥</li>
+		</ul>
+	</div>
+	<div id = "food_2">
+		<h2>양식</h2>
+		<ol id = "list">
+			<li>돈까스</li>
+			<li id="pizza">피자</li>
+			<li>파스타</li>
+		</ol>
+	</div>
+	<script type="text/javascript">
+		//HTML요소중 (태그들중) <h1>요소만 선택함.
+		//그리고 가장 처음<h1>요소만 선택한후, CSS로 글자 색상을 초록색으로 적용
+		var h1 = document.getElementsByTagName("h1");
+		h1[0].style.color = "green";
+		
+		//HTML요소들중.. id속성값이 title인 요소를 선택한 후,
+		//CSS로 글자색상을 빨간색으로 적용
+		document.getElementById("title").style.color = "red";
+		
+		//HTML요소들 중.. id 속성값이 food_1인 요소의 하위 요소 <li>요소만 선택
+		//그중 두번째 <li>요소만 최종적으로 선택한 후, 배경 색상을 빨간색으로 적용함
+		var food = document.getElementById("food_1").getElementsByTagName("li");
+		food[1].style.background-color = "red";
+		
+	</script>
+</body>
+</html>

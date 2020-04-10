@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 id = "title">마우스 아웃</h1>
+	
+	<a href ="#" id="btn">
+		<img src="images/btn_out.gif">
+	</a>
+	<p id = "img_src"></p>
+	<script type="text/javascript">
+		//id속성값이 "btn"인 <a>요소를 선택해서 가져와서 theBtn변수에 저장
+		var theBtn = document.getElementById("btn");
+		//id속성값이 "img_src"인 <p>요소를 선택해서 가져와서 s변수에 저장
+		var s = document.getElementById("img_src");
+		//id속성값이  "btn"인 <a>요소에 마우스포인터를 올렸을때 익명함수 function(){}코드가 실행되게 선언
+		theBtn.onmouseover = function(){ 
+			//id 속성값이 "title"인 <h1>요소안의 텍스트노드값을 "마우스오버"로 바뀌게 하기
+			document.getElementById("title").innerHTML ="마우스오버";
+			//innerHTML을 통해서 DOM객체의 요소의 텍스트 값을 변경할 수 있다
+			//<img>요소의 src 속성값을 "images/btn_over.gif"로 변경한다
+			//마우스 오버된 이미지로 변경되게 하기
+			theBtn.children[0].src = "images/btn_over.gif";
+			//마우스 오버된 <img>요소의 src속성의 값을 얻어 <p id = "img_src"></p>요소의 텍스트노드값 위치에 출력
+			s.innerHTML = theBtn.children[0].src;
+		}
+		
+		//<a id = "btn">요소에서 마우스포인터가 벗어 나는 행위를 했을 경우
+		//이벤트 처리 함수 fuction(){}이 실행되게선언
+		theBtn.onmouseout = function(){ 
+			alert("벗어났다");
+		}
+	</script>
+</body>
+</html>
