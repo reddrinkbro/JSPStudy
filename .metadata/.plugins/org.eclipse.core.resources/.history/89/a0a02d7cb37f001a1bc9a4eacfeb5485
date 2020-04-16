@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+	<script type="text/javascript">
+	
+		var h1 = document.getElementById("a");
+		
+		alert(h1);
+	</script>
+
+</head>
+<body>
+
+	<h1 id="a">바보</h1>
+	
+	
+	
+</body>
+</html>

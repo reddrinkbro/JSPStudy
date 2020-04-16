@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	
+	<script type="text/javascript">
+	
+	var num = 200; // 전역변수
+	
+	function myFnc(){
+		var num = 500; // 지역변수
+	}
+	
+	myFnc();
+	
+	document.write(num); //전역변수 num의 200출력
+	
+	/*
+		결론 : 함수에 실행문으로 var를 붙여서 작성한 변수 (var num=500)는 지역변수이므로
+		함수의 밖에서는 불러와서 사용할 수 없다
+		따라서 함수 밖에 선언된 num변수의 값인 200이 출력됨	
+	*/
+	</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

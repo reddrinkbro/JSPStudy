@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		
+		//웹브라우저가 <body>요소영역을 모두 로딩 했을때
+		window.onload = function(){// 이벤트함수 처리
+			var h1 = document.getElementById("a");
+			alert(h1);
+		}
+	</script>
+</head>
+<body>
+	<h1 id="a">바보</h1>
+	
+</body>
+</html>
