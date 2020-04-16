@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		예제 주제 : 함수 정의문과 익명함수를 변수에 참조시키는 두가지 방식으로 함수를 선언 한것을 호출하여 실행문을 실행한 예제
+	
+	 -->
+	 <script type="text/javascript">
+	 var i = 0;
+	 
+	 //myFnc라는 이름의 함수가 하는 기능: i변수값을 1증가시키고 증가된 i변수값을 출력 하는 기능
+	 function myFnc() {//myFnc함수 정의문
+		i++
+		document.write("hello" + i,"<br/>");
+	}
+	 
+	 </script>
+</body>
+</html>

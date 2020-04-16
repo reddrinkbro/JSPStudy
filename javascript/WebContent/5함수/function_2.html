@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- 주제 : 함수를 만들어서 함수를 이용해 [배경색 바꾸기] 버튼을 클릭할때마다 웹브라우저화면의 배경색이 바뀌도록 한 예제 -->
+	
+	<script type="text/javascript">
+	
+		//4개의 색상 데이터가 저장된 배열 객체를 변수 color에 저장함
+		var color = ["white","yellow","aqua","purple"];
+		var i = 0; //<----위 배열의 인덱스 위치 번호를 저장할 용도
+	
+		//colorBg()함수 만들기
+		//기능 : <body>요소영역의 배경색상이 바뀌도록 하는 기능
+		function colorBg(){
+			i++; //변수 i의 데이터를 1증가 시킴
+			if(i >= color.length){
+				i = 0;
+			}
+		//<body>요소를 선택해서 가져와 bodyTag변수에 저장
+		var bodyTag = document.getElementsByTagName("body")[0];
+		//스타일(CSS)문법을 이용해 선택한 <body> 요소 영역의 배경색상을 위의 color배열의 인덱스 위치에 해당하는 값으로 설정하여 바꿈
+		bodyTag.style.backgroundColor = color[i];
+		}
+	
+	</script>
+</head>
+<body>
+		<!-- 배경색 바꾸기 버튼을 클릭 했을때 colorBg()함수를 홏ㄹ해 기능을 수행하게 하자. -->
+		<button onclick = "colorBg();">배경색 바꾸기</button>
+
+</body>
+</html>

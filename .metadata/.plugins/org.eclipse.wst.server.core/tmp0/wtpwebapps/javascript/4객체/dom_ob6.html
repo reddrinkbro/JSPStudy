@@ -11,20 +11,6 @@
 	</style>
 </head>
 <body>
-	<form action="a.jsp" name = "f1">
-		<fieldset>
-			<legend>form태그 내부의 요소들1</legend>
-			<p>
-				<label>비밀번호</label>
-				<input type ="text" id ="user_pw1" name ="user_pw1"/>
-			</p>
-			<p>
-				<label>비밀번호 확인</label>
-				<input type ="text" id = "user_pw2" name ="user_pw2"/>
-				<input type="submit" value = "확인"/>
-			</p>
-		</fieldset>
-	</form>
 	<form action="a.jsp" name = "f2">
 		<fieldset>
 			<legend>form태그 내부의 요소들2</legend>
@@ -53,7 +39,56 @@
 			</p>
 		</fieldset>
 	</form>
+	<form action="a.jsp" name = "f1">
+		<fieldset>
+			<legend>form태그 내부의 요소들1</legend>
+			<p>
+				<label>비밀번호</label>
+				<input type ="text" id ="user_pw1" name ="user_pw1"/>
+			</p>
+			<p>
+				<label>비밀번호 확인</label>
+				<input type ="text" id = "user_pw2" name ="user_pw2"/>
+				<input type="submit" value = "확인"/>
+			</p>
+		</fieldset>
+	</form>
 	<script type="text/javascript">
+	
+	
+		// name속성값이 f2인? form태그를 이용해 a.jsp페이지를 요청했을때(전송버튼을 눌렀을때)
+		document.f2.onsubmit = function(){
+			
+			//약관 동의 체크박스 <input>요소를 선택해서 가져 오기
+			var act = document.f2.accept;
+			
+			//약관 동의 체크박에 체크가 되어 있지 않을 경우
+			if(act.checked == false){
+				window.alert("약관 동의 해야합니다.");
+				//약관 동의 체크박스에 포커스를 이동해서 선택
+				act.focus();	
+				//a.jsp서버 페이지로의 전송을 차단
+				return false;
+			}
+			//과목1 체크박스가 체크되어 있지 않으면
+			else if(document.f2.subject1.checked == false){
+				alert("과목 1에 체크 해야 합니다");
+				document.f2.subject1.focus();
+				return false;
+			}
+			else if(document.f2.subject2.checked == false){
+				alert("과목 2에 체크 해야 합니다");
+				document.f2.subject2.focus();
+				return false;
+			}
+			else if(document.f2.subject3.checked == false){
+				alert("과목 3에 체크 해야 합니다");
+				document.f2.subject3.focus();
+				return false;
+			}
+			
+		}
+		
 	
 		//전체 선택체크박스를 클릭했을때 이벤트 처리함수 function(){...}이 실행되게 선언
 		document.f2.allchk.onclick = function(){
@@ -92,7 +127,6 @@
 			//a.jsp페이지로 전송하는 것을 차단시켜야한다
 			//만약 차단 하지 않으면 <form>태그의 action속성에 작성된 a.jsp로 전송하여 페이지가 이동되게 된다
 		}
-		
 	</script>
 </body>
 </html>
