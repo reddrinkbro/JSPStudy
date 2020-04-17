@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 요청하는 페이지인 event_4.html에서 이름과 연락처를 입력하고
+		 톰캣이 실행하여 처리할 a.jsp로 데이터를 전달하여 
+		 요청 데이터를 얻은 후 a.jsp서버페이지와 DB와 연결을 하여 DB에 요청데이터를 추가하게됨
+		 
+		 <form>의 역할 : 입력한 데이터를 서버페이지로 전송 하는 역할을 함.
+		 onsubmit이벤트 : 이름과 연락처를 입력하고 아래의 회원가입 버튼을 눌렀을때 (전송버튼을 클릭했을때)
+	 -->
+	<form action="a.jsp" name="f1" onsubmit ="return submit_chk(this)"  >
+		<fieldset>
+			<legend>회원가입</legend>
+			<p>
+				<label>이름</label>
+				<input type ="text" name="user_name" id="user_name"/>
+			</p>
+			<p>
+				<label>연락처</label>
+				<input type ="text" name="user_tel" id="user_tel"/>
+			</p>
+			<p>
+				<input type="submit" value = "회원가입"/>
+				<input type="reset" value = "다시입력"/>
+			</p>			
+		</fieldset>
+	</form>
+</body>
+</html>

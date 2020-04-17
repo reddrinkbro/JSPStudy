@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form action="a.jsp">
+		<fieldset>
+			<legend>회원가입</legend>
+			<p>
+				<label>이름</label>
+				<input type ="text" name="user_name" id="user_name"/>
+			</p>
+			<p>
+				<label>연락처</label>
+				<input type ="text" name="user_tel" id="user_tel"/>
+			</p>
+			<p>
+				<input type="submit" value = "회원가입"/>
+				<input type="reset" value = "다시입력"/>
+			</p>			
+		</fieldset>
+		
+		
+	</form>
+</body>
+</html>
