@@ -57,7 +57,7 @@
 			//실행문
 			var result = confirm("정말로 회원가입을 취소 하시겠습니까?");
 			
-			if(!result){
+			if(result){
 				return false;
 			}
 		}

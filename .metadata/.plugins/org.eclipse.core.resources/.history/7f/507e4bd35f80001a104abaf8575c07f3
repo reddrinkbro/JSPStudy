@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title> 이벤트 객체 </title>
+<!-- 
+	#이벤트 객체의 속성 종류
+		
+		1.마우스 이벤트 객체 속성
+			clientX : 마우스 이벤트가 발생한 X좌표값 얻기(수평 스크롤바 이동 너비 무시)
+			clientY : 마우스 이벤트가 발생한 Y좌표값 얻기(수직 스크롤바 이동 높이 무시)
+			pageX : 마우스 이벤트가 발생한 X좌표값 얻기(수평 스크롤바 이동 너비 포함)
+			pageY : 마우스 이벤트가 발생한 Y좌표값 얻기 (수직 스크롤바 이동 높이 포함)
+			screenX : 화면 모니터를 기준으로 이벤트가 발생한 X좌표값
+			screenY : 화면 모니터를 기준으로 이벤트가 발생한 Y좌표값
+			layerX : position을 적용한 요소를 기준으로 이벤트가 발생한 X좌표값
+			layerY : position을 적용한 요소를 기준으로 이벤트가 발생한 Y좌표값
+			button : 마우스에 눌린 버튼의 값	
+	
+		2. 키보드 이벤트 객체 속성
+			keyCode : 키보드에 눌린 유니코드값
+			altKey : Alt키가 눌려 있으면 true를 , 그렇제 않으면 false를 반환함.
+			ctrlKey : Ctrl키가 눌려 있으면 true를 , 그렇제 않으면 false를 반환함.	
+			shihtKey : Shift키가 눌려 있으면 true를 , 그렇제 않으면 false를 반환함.
+		
+		3. 전체 이벤트 객체 속성
+			target : this와 같이 이벤트가 발생한 태그요소를 반환함.
+
+ -->
+<!-- 주제 : 
+          마우스 이벤트 객체 속성과 키보드 이벤트 속성을 실습한 예제.
+          마우스를 이동 시킬 때마다 마우스의 좌표값을 출력합니다.
+          이때 pageX,pageY는 스크롤이 이동된 너비와 높이까지 계산하여 좌표값을 반환합니다.
+	 그리고 단축키 Ctrl + G를 지정하여 단축키를 눌렀을때, "단축키 실행" 메세지가 적혀 있는 경고창이 나타나도록 함.
+ -->
+
+<script type="text/javascript">
+	//웹브라우저가 event_object.html
+	window.onload = function(){
+		//첫번째 <form>요소를 선택해서 가져와서 변수에 저장
+		var form1 = document.f1;
+		//두번째 <form>요소를 선택해서 가져와서 변수에 저장
+		var form2 = document.f2;
+		
+		var eventObj;
+		
+		//마우스를 움직일때 마다 이벤트가 발생하므로 이때 매개변수 e에 전달되는 것은 마우스이벤트객체이다
+		document.onmousemove = function(e){
+			//매개변수 e에 onmousemove 이벤트객체가 생성되었다면
+			//생성된 onmousemove이벤트 객체를 eventObject변수에 저장
+			//생성 되지 않았다면 window event객체를 가진다
+			eventObj = e ? e : window.event;
+			
+			//마우스 커서의 x위치 값을 구한후 변수 cx에 저장
+			//이때 가로 스크롤바가 이동된 너비는 무시 됨.
+			var cx = eventObj.clientX;
+			
+			//마우스 커서의 Y위치 값을 구한 후 변수 cy에 저장
+			//이때 세로 스크롤바가 이동된 너비는 무시됨.
+			var cy = eventObj.clientY;
+			
+			//<input type = "text" name = "client_x">입력 태그에
+			//커서의 x위치값이 출력되도록 value속성값으로 적용.
+			form1.client_x.value = cx;
+			
+			//<input type = "text" name = "client_y">입력 태그에
+			//커서의 y위치값이 출력되도록 value속성값으로 적용.
+			form1.client_y.value = cy;
+			
+			//마우스 커서의 x위치 값을 구한 후 변수 px에 저장
+			//이때 가로 스크롤바가 이동된 값까지 포함되어 계산됨
+			var px = eventObj.pageX;
+			
+			//마우스 커서의 y위치 값을 구한 후 변수 py에 저장
+			//이때 세로 스크롤바가 이동된 값까지 포함되어 계산됨
+			var py = eventObj.pageY;
+			
+			//<input type = "text" name = "pg_x">입력 태그에
+			//커서의 x위치값이 출력되도록 value속성값으로 적용.
+			form1.pg_x.value = px;
+			
+			//<input type = "text" name = "pg_y">입력 태그에
+			//커서의 y위치값이 출력되도록 value속성값으로 적용.
+			form1.pg_y.value = py;
+		} // onmousemove 이벤트
+		
+		//name속성값이 "key"인 <input>태그에서 키보드를 눌렀을때 이벤트가 발생한다
+		//이때 매개변수e에는 키보드 이벤트 객체가 생성되어 전달됨
+		form2.key.onkeydown = function(e){
+			
+			eventObj = e ? e : window.event;
+			
+			//keyCode 키보드 이벤트 객체의 속성을 이용하여 누른 키에 대한 유니코드값을 구한후
+			//name 속성값이 code인? <input>요소에 value속성값으로 설정하자
+			form2.code.value = eventObj.keyCode;
+			
+			//참고 : ctrlkey 키보드이벤트 객체 속성은 Ctrl키가 눌러져 있으면 true를 반환하고,
+			//	  그렇지 않으면 false값을 반환함
+			//참고 : keyCode 키보드이벤트 객체 속성은 누른 키에 관한 유니코드값을 반환함
+			
+			//요약 : ctrl키가 눌러져 있는 상태에서 G키를 눌렀을때.
+			if(eventObj.ctrlkey == true && eventObj.keyCode == 71){
+				alert("단축키 실행");
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<div id="wrap">
+   <h1>마우스 이벤트 객체 속성</h1>
+   <form action="#" method="get" name="f1">
+      <fieldset>
+         <legend>커서 위치 추적</legend>
+         <p>
+         <label for="client_x">clientX :</label>
+         <input type="text" name="client_x" id="client_x" />
+         </p>
+         <p>
+         <label for="pg_x">pageX :</label>
+         <input type="text" name="pg_x" id="pg_x" />
+         </p>
+         <p>
+         <label for="client_y">clientY :</label>
+         <input type="text" name="client_y" id="client_y" />
+         </p>
+         <p>
+         <label for="pg_y">pageY :</label>
+         <input type="text" name="pg_y" id="pg_y" />
+         </p>
+      </fieldset>
+   </form>
+   <h1>키보드 이벤트 객체 속성</h1>
+   <form action="#" method="get" name="f2">
+      <fieldset>
+         <legend>키 코드 값</legend>
+         <p>
+            <label for="key">입력 키보드 :</label>
+            <input type="text" name="key" id="key" />
+            <label for="code">유니코드 값 :</label>
+            <input type="text" name="code" id="code" />
+         </p>
+      </fieldset>
+   </form>
+</div>
+</body>
+</html>

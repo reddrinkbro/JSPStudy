@@ -3,6 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<script type="text/javascript">
+			//submit_chk()함수의 역할
+			//event_4.html 페이지 방문자가 입력한 이름과 연락처가 정규표현식 패턴에 맞게 작성되었는지 검사
+			//틀릴 경우 경고 창을 뛰우고 포커스를 이동 시킨다
+		function submit_chk(myForm){
+			//정규표현식(한글을 2자~5자 사이로 입력했는지 판단하는 식)
+			var reg1 = /^[가-힣]{2,5}$/;
+			
+			//정규표현식(휴대폰 번호중 010,011중 하나로 시작하고, 다음은 숫자 3~4사이로 입력하고 마지막으로 숫자 4개를 입력해야하는 정규표현식 작성)
+			
+			var reg2 = /^(010|016|011)\d{3,4}\d{4}$/;
+			
+			//아래 이름을 입력하는 <input type= "text" name = user_name.../>요소를
+			//선택해서 가져와 name변수에 저장
+			var name = myForm.user_name;
+			//아래 이름을 입력하는 <input type= "text" name = user_tel.../>요소를
+			//선택해서 가져와 tel변수에 저장			
+			var tel = myForm.user_tel;
+			
+			//방문자가 입력한 이름,연락처가 정규표현식에 맞게 입력되었는지 판단
+			//방문자가 입력한 이름,연락처가 정규표현 규칙에 어긋하면 false를 반환한다
+			var result1 = reg1.test(name.value);
+			var result2 = reg2.test(tel.value);
+			
+			//이름을 정해진 규칙에 어긋하게 작성했을 경우 경고창을 뛰우고
+			//이름 입력하는 <input>요소에 포커스를 주어 선택되게 하기
+			if(!result1){
+				alert("이름 입력이 잘못되었습니다.");
+				name.value = "";
+				name.focus();
+				return false; // <form>요소로 false를 리턴하여 action 속성의 a.jsp로의 전송을 취소 시킴
+			}
+			//연락처를 정해진 규칙에 어긋하게 작성했을 경우 경고창을 뛰우고
+			//연락처 입력하는 <input>요소에 포커스를 주어 선택되게 하기
+			else if(!result2){
+				alert("연락처 입력이 잘못되었습니다.");
+				tel.value = "";
+				tel.focus();
+				return false;
+			}
+			
+			
+		}
+		//취소 버튼을 눌렀을때 확인/취소 버튼이 존재하는 물음창을 띄워서
+		//다시 한번더 회원가입 취소 여부를 묻는다
+		
+		//[취소]버튼을 눌렀을 경우 함수내의 실행문이 실행된다
+		//"정말로 회원가입을 취소하시겠습니까?" 라는 확인버튼과 취소 버튼이 존재하는 물음창을 띄우고
+		//만일[취소]버튼을 누를경우 false값을 반환하여 가입취소가 실행되지 않게 하기
+		function reset_chk(myForm){
+			//실행문
+			var result = confirm("정말로 회원가입을 취소 하시겠습니까?");
+			
+			if(!result){
+				return false;
+			}
+		}
+	</script>
 </head>
 <body>
 	<!-- 요청하는 페이지인 event_4.html에서 이름과 연락처를 입력하고
@@ -11,8 +70,19 @@
 		 
 		 <form>의 역할 : 입력한 데이터를 서버페이지로 전송 하는 역할을 함.
 		 onsubmit이벤트 : 이름과 연락처를 입력하고 아래의 회원가입 버튼을 눌렀을때 (전송버튼을 클릭했을때)
+		 onsubmit = "return submit_chk(this); 는 회원가입(전송)버튼을 눌렀을때
+		 함수 submit_chk(this)를 호출한다.
+		 여기서 this 키워드는 전송 이벤트가 발생한 <form>요소를 가리킨다
+		 return 키워드는 submit_chk()함수에서 반환한 false값을 받환 받으면
+		 action속성에 작성된 a.jsp로 데이터를 전송하는 것을 취소한다
+		 
+		 onreset = "return reset_chk(this); 는 다시입력(리셋)버튼을 눌렀을때
+		 함수 reset_chk(this)를 호출한다
+		  여기서 this 키워드는 취소 이벤트가 발생한 <form>요소를 가리킨다
+		  return 키워드는 submit_chk()함수에서 false를 반환 받으면 reset기능이 취소된다.
+		 
 	 -->
-	<form action="a.jsp" name="f1" onsubmit ="return submit_chk(this)"  >
+	<form action="a.jsp" name="f1" onsubmit = "return submit_chk(this);" onreset = "return reset_chk(this);" >
 		<fieldset>
 			<legend>회원가입</legend>
 			<p>
@@ -25,7 +95,7 @@
 			</p>
 			<p>
 				<input type="submit" value = "회원가입"/>
-				<input type="reset" value = "다시입력"/>
+				<input type="reset" value = "취소"/>
 			</p>			
 		</fieldset>
 	</form>
