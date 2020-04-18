@@ -30,13 +30,15 @@ function CheckForm() {
 	var sex = document.MemberForm.sex;
 	//취미 체크박스들을 선택하여 hobby변수에 저장 
 	var hobby = document.MemberForm.hobby;
-
 	//이름을 2자 미만 또는 5자보다 초과 작성 했을 경우  
 		//"이름은 2자~5자 이내로 작성하시오" <-경고메세지창
 		// 이름 입력란이 선택이 되도록 하기
 		// return false
 	var reg1 = /^[가-힣]{2,5}$/;
 	var result1 = reg1.test(uName.value);
+	var reg2 = /^([A-Za-z0-9]{8,12})$/;
+	var result2 = reg2.test(uPWD.value);
+	
 	if(!result1){
 		alert("이름은 2자~5자 이내로 작성하시오");
 		uName.value = "";
@@ -47,7 +49,7 @@ function CheckForm() {
 		//"아이디를 입력해주세요." <-경고메세지창
 		// 아이디 입력란에 포커스 주기
 		// return false
-	if(uID == null){
+	else if(uID.value == ""){
 		alert("아이디를 입력해주세요");
 		uID.focus();
 		return false;
@@ -56,47 +58,60 @@ function CheckForm() {
 		//"비밀번호는 8자~12자 이내입니다." <-경고메세지창
 		//비밀번호 입력란에 빈공백 ""주기
 		// return false
-	
+
+	else if(!result2){
+		alert("비밀번호는 8자~12자 이내입니다.");
+		uPWD.value = "";
+		return false;
+	}
+
 
 	//비밀번호 값과 비밀번호확인 값이 다를 경우 
 		//"비밀번호 값이 다릅니다."  <-경고메세지창
 		//비밀번호 확인 란에 빈공백 주기
 		// return false
-	if(uPWD != uPWD_Confirm){
+	else if(uPWD.value != uPWD_Confirm.value){
 		alert("비밀번호 값이 다릅니다");
 		uPWD_Confirm = "";
 		return false;
 	}
 	
-
+	
 	// 입력한 주민번호 앞자리와 뒷자리를 CheckRRN()함수의 인자로 전달하여
 	// 올바른 주민번호를 입력 하지 않았을 경우  false값을 리턴 
-	if (CheckRRN(uBirth, uBirth_2) == false) {
+	else if (CheckRRN(uBirth.value, uBirth_2.value) == false) {
+		alert(motivation);
 		return false;
 	}
 	
 	//가입 동기를 입력하지 않았을 경우
 		//"가입인사를 적어주세요~" <-경고메세지창
 		//return false;
-	if(motivation == null){
+	else if(motivation.value == ""){
 		alert("가입인사를 적어주세요~");
 		return false;
 	}
 	//성별을 선택 하지 않았을 경우
 		//"성별을 체크해주세요." <-경고메세지창
 		//return false;
-
+	else if(CheckValue(sex) == false){
+		alert("성별을 체크해주세요.");
+		return false;
+	}
 	//취미를 체크 하지 않았을 경우 
 		//"취미를 체크해주세요." <-경고메세지창
 		//return false;
-	
+	else if(CheckValue(hobby)== false){
+		alert("취미를 체크해주세요.");
+		return false;
+	}
 	
 	//직업을 체크 하지 않았을 경우
 	if (work.options.selectedIndex == 0) {
 		alert("직업을 체크해주세요.");
 		return false;
 	}
-
+	
 }
 
 //올바른 주민번호를 입력 하지 않았을 경우  false값을 리턴 하는 CheckRRN메소드 만들기 
@@ -115,7 +130,6 @@ function CheckRRN(num1, num2) { //입력한 주민번호 앞자리와 뒷자리�
 	var dd = num1.substring(4,6);
 	//예를 들어 입력한 주민번호의 뒷자리 1234567 중에 1문자열만 잘라내어 sex변수에 저장
 	var sex = num2.substring(0,1);
-	
 	//올바른 주민 등록번호 형식인지 유효성 체크하자
 	//만약 입력한 주민 번호의 앞자리 개수가 6자가 아니거나,
 	if(num1.length!=6){
@@ -123,26 +137,26 @@ function CheckRRN(num1, num2) { //입력한 주민번호 앞자리와 뒷자리�
 		num1.focus();
 		return false;
 	}
-	//    입력한 주민 번호의 뒷자리 개수가7자가 아니거나,
-	if(num2.length!=7){
+	//입력한 주민 번호의 뒷자리 개수가7자가 아니거나,
+	else if(num2.length!=7){
 		alert("올바른 주민등록번호 형식이 아닙니다.");
 		num1.focus();
 		return false;
 	}
 	//    mm변수에 저장된 값이 1미만 이거나 12초과 이고,
-	if(Number(mm) < 1 || Number(mm) > 12){
+	else if(Number(mm) < 1 || Number(mm) > 12){
 		alert("올바른 주민등록번호 형식이 아닙니다.");
 		num1.focus();
 		return false;
 	}
 	//    dd변수에 저장된 값이 1미만 이거나 31초과 이고,
-	if(Number(dd) < 1 || Number(dd) > 31){
+	else if(Number(dd) < 1 || Number(dd) > 31){
 		alert("올바른 주민등록번호 형식이 아닙니다.");
 		num1.focus();
 		return false;
 	}
 	//	  sex변수에 저장된 값이  1미만 이거나 4초과 라면?
-	if(Number(sex) < 1 || Number(sex) > 4){
+	else if(Number(sex) < 1 || Number(sex) > 4){
 		alert("올바른 주민등록번호 형식이 아닙니다.");
 		num1.focus();
 		return false;
@@ -159,14 +173,14 @@ function CheckRRN(num1, num2) { //입력한 주민번호 앞자리와 뒷자리�
 function CheckValue(obj) {// 체크 여부 확인
 	
 	var value = 0;
-	//주석 :
+	//주석 : obj에서 값이 하나라도 체크되어있는지 확인
 	for (var i = 0; i < obj.length; i++) {
 		if (obj[i].checked == true) {
 			value = 1;
 			break;
 		}
 	}
-	//주석:
+	//주석: 체크가 되어있으면 value가 1이므로 true반환 아니면 false반환
 	if (value == 0)
 		return false;
 	else
