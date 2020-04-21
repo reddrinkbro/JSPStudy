@@ -36,7 +36,7 @@ function CheckForm() {
 		// return false
 	var reg1 = /^[가-힣]{2,5}$/;
 	var result1 = reg1.test(uName.value);
-	var reg2 = /^([A-Za-z0-9]{8,12})$/;
+	var reg2 = /^([A-Za-z0-9]){8,12}$/;
 	var result2 = reg2.test(uPWD.value);
 	
 	if(!result1){
