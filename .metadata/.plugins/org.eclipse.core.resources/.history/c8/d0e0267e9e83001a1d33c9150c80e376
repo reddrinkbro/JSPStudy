@@ -10,12 +10,7 @@
 		Attribute Contains Selector
 		지정된 속성의 값이 일치하지 않지만 지정된 값을 포함하는 요소를 검색하고
 		공백으로 정확하게 구분된 속성값을 갖는 요소를 검색할때 사용
-		
-		사용법
-			$("selector[attr *= 'value']")
-			$("selector[attr ~= 'value']")
-			->정확하게 일치하지는 않지만 지정된 속성값의 일부로 포함하는 요소 검색에는 *=
-			공백으로 정확하게 구분된 요소 검색에는 ~= 연산자를 사용
+
  -->
 
 
@@ -32,7 +27,7 @@
 	</script>
 </head>
 <body>
-	<input name = "man-news" ><br>
+	<input name = "manfdmsalkfmsdklfmkalsjfiaoheflaksdfajioganklflnews" ><br>
 	<input name = "milk man"><br>
 	<input name = "letterman2"><br>
 	<input name = "newmilk"><br>
